@@ -1,2 +1,2 @@
 #!/bin/bash
-cat /tmp/passwd
+echo"cat /tmp/passwd"
