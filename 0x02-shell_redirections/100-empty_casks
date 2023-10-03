@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type d -empty -exec stat -c "%n" {} \; -o -type f -empty -exec stat -c "%n" {} \; ; echo
+find . -empty | rev | cut -d "/" -f 1 | rev
