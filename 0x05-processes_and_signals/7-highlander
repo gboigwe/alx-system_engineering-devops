@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This scrpit prints continuously till infinity
+# This scrpit prints infinitly and gets signals
 
 trap 'echo "I am invincible!!!"' SIGTERM
 while :
