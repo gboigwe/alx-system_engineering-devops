@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 # This scrpit prints continuously till infinity
 
-word_change=("To infinity and beyond" "I am invincible!!!")
-
-# Infinite loop
+trap 'echo "I am invincible!!!"' SIGTERM
 while :
 do
-	random_word="${word_change[$(shuf -i 0-1 -n 1)]}"
-	echo "$random_word"
+	echo "To infinity and beyond"
 	sleep 2
 done
