@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This scrpit prints continuously till infinity
+
+word_change=("To infinity and beyond" "I am invincible!!!")
+
+# Infinite loop
+while :
+do
+	random_word="${word_change[$(shuf -i 0-1 -n 1)]}"
+	echo "$random_word"
+	sleep 2
+done
