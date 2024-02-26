@@ -3,7 +3,7 @@
 #+ and removes anything before the dash
 
 list_item=$(ls)
-for i in list_item;
+for i in $list_item;
 do
 	echo "$i" | cut -d "-" -f2
 done
