@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# This script gives information about a file
+# This script gives information about a filie
+
 file="school"
 
 if [ -e "$file" ];
