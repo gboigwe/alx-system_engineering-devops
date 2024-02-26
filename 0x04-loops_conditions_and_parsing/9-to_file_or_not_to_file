@@ -2,7 +2,7 @@
 # This script gives information about a file
 
 if [ ! -e "school" ]
-then
+;then
 	echo "school file does not exist"
 else
 	if [ -s "school" ]
