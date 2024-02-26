@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script displays the content of the directory \
+#+ and removes anything before the dash
+
+list_item=$(ls)
+for i in list_item;
+do
+	echo "$i" | cut -d "-" -f2
+done
