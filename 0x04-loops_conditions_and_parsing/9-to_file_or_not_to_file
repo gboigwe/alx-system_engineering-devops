@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script gives information about a filie
+# This script gives information about a file and it position
 
 file="school"
 
