@@ -4,8 +4,6 @@
 if [[ ! -e "school" ]]; then
 	echo "school file does not exist"
 else
-	echo "school file exist"
-
 	if [[ -s "school" ]]; then
 		echo "school file is not empty"
 	else
@@ -15,4 +13,6 @@ else
 	if [[ -f "school" ]]; then
 		echo "school is a regular file"
 	fi
+
+	echo "school file exist"
 fi
