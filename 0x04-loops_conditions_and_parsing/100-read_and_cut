@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Read the /etc/passwd file and display UID and username
+while IFS=: read -r username _uid _; do
+    echo "User ID: $_uid, Username: $username"
+done < /etc/passwd
+
