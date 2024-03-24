@@ -2,6 +2,8 @@
 ## Web infrastructure
 
 ### Author: Gbolahan Akande
+#### This is a project of three but I am the author of this push
+#### The project comprises of Gbolahan Akande; Iyanu Dayisi; Solomon Okomowho
 
 The Following knowledge was gained in this project
 - A database
