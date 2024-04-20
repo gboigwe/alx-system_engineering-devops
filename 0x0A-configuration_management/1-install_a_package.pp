@@ -3,7 +3,7 @@ import python
 import python::devel
 
 file { 'flask':
-    ensure   => installed,
+    ensure   => '2.1.0',
     provider => 'pip3',
     require  => Class['python::devel'],
 }
