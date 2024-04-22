@@ -1,19 +1,15 @@
-# Configure the system-wide SSH client configuration
-#
-# Requirements:
-#   - Use the private key /home/school/.ssh/school
-#   - Disable password authentication
+# Using Puppet to make changes to configuration file
+# so that I can connect to a server without typing a password
 
 file { '/etc/ssh/ssh_config':
-  ensure  => file,
-  mode    => '0644',
-  owner   => 'root',
-  group   => 'root',
-  content => @("END_CONFIG"/),
-    # Use the private key /home/school/.ssh/school
-    IdentityFile /home/school/.ssh/school
-
-    # Disable password authentication
-    PasswordAuthentication no
-    END_CONFIG
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => @("EOF")
+# Configuration of ssh using puppet
+Host *
+	IdentityFile ~/.ssh/school
+	PasswordAuthentication no
+	EOF
 }
