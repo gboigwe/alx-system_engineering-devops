@@ -12,7 +12,7 @@ sudo apt-get install nginx
 # Installing a firewall and using it also
 sudo ufw 'Nginx HTTP'
 
-echo "Hello world!" > /var/www/html/index.html
+echo "Hello world!" > /var/www/html/index.nginx-debian.html
 
 # Testing The configuration of Nginx
 sudo nginx -t
