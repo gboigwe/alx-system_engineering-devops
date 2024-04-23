@@ -14,5 +14,8 @@ ufw allow 'Nginx HTTP'
 
 echo 'Hello world!' > /var/www/html/index.nginx-debian.html
 
+# Nginx testing server
+nginx -t
+
 # Starting Nginx server
 service nginx start
