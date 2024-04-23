@@ -4,18 +4,15 @@
 # let’s install one!
 
 # Updating the server
-apt-get update
+apt-get -y update
 
 # Installing Nginx
-apt-get install nginx
+apt-get -y install nginx
 
 # Installing a firewall and using it also
-ufw 'Nginx HTTP'
+ufw allow 'Nginx HTTP'
 
-echo "Hello world!" > /var/www/html/index.nginx-debian.html
+echo 'Hello world!' > /var/www/html/index.nginx-debian.html
 
-# Testing The configuration of Nginx
-nginx -t
-
-# Reloading Nginx after creating html
-service nginx reload
+# Starting Nginx server
+service nginx start
