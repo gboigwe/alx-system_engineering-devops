@@ -16,3 +16,6 @@ redirect_var="server_name _;\n\trewrite ^\/redirect_me https:\/\/agedevs.netlify
 
 # Command that actually redirects my site to my server
 sed -i "s/server_name _;/$redirect_var/" /etc/nginx/sites-enabled/default
+
+# Starting Nginx server
+service nginx start
