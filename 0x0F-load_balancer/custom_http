@@ -1,0 +1,8 @@
+# Customising HTTP Headers
+sed -i "server _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+
+# Test the nginx
+sudo nginx -t
+
+# Restart the server
+sudo service nginx restart

@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Creating a 404 error page
+
+# Updating the server
+apt-get -y update
+
+# Installing Nginx
+apt-get -y install nginx
+
+# Echo an hello world
+echo 'Hello World!' | sudo tee /var/www/html/index.html
+
+# Declare a variable that redirects
+# my site to your server
+redirect_var="server_name _;\n\trewrite ^\/redirect_me https:\/\/agedevs.netlify.app permanent;"
+
+# Command that actually redirects my site to my server
+sed -i "s/server_name _;/$redirect_var/" /etc/nginx/sites-enabled/default
+
+# Creating the 404 html error page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+# Script to configure an error page
+replace_input="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+
+# Configuring an error page
+sed -i "s/listen 80 default_server;/$replace_input/" /etc/nginx/sites-enabled/default
+
+# Configuring an error page
+sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME" /etc/nginx/sites-enabled/default
+
+# Checking to see Nginxis okay
+nginx -t
+
+# Starting Nginx server
+service nginx restart
