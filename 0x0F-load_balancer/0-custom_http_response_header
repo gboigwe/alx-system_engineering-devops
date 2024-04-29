@@ -12,7 +12,7 @@ echo 'Hello World!' | sudo tee /var/www/html/index.html
 
 # Declare a variable that redirects
 # my site to your server
-redirect_var="server_name _;\n\trewrite ^\/redirect_me https:\/\/agedevs.netlify.app permanent;"
+redirect_var="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/gboigwe permanent;"
 
 # Command that actually redirects my site to my server
 sed -i "s/server_name _;/$redirect_var/" /etc/nginx/sites-enabled/default
@@ -27,7 +27,7 @@ replace_input="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocati
 sed -i "s/listen 80 default_server;/$replace_input/" /etc/nginx/sites-enabled/default
 
 # Configuring an error page
-sed -i "s/server_name _;/a add_header X-Served-By $HOSTNAME" /etc/nginx/sites-enabled/default
+sed -i "s/server_name _/a add_header X-Served-By $HOSTNAME" /etc/nginx/sites-enabled/default
 
 # Checking to see Nginxis okay
 nginx -t
