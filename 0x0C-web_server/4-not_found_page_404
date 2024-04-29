@@ -25,5 +25,5 @@ replace_input="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocati
 
 sed -i "s/listen 80 default_server;/$replace_input/" /etc/nginx/sites-enabled/default
 
-# Re-starting Nginx server
+# Re-Starting Nginx server
 service nginx restart
