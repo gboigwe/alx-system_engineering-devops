@@ -23,7 +23,7 @@ echo "Ceci n'est pas une page" > sudo tee /var/www/html/404.html
 # Script to be used to carry out the action
 replace_input="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 
-sudo sed -i "s/listen 80 default_server;/$replace_input/" /etc/nginx/sites-enabled/default
+sed -i "s/listen 80 default_server;/$replace_input/" /etc/nginx/sites-enabled/default
 
 # Re-starting Nginx server
 service nginx restart
