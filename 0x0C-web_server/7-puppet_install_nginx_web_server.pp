@@ -1,4 +1,4 @@
-# Install Nginx web server Puppet
+# Install Nginx web server Puppet.
 
 package { 'nginx':
   ensure => installed,
