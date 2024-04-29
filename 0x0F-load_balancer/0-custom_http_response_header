@@ -27,7 +27,7 @@ replace_input="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocati
 sed -i "s/listen 80 default_server;/$replace_input/" /etc/nginx/sites-enabled/default
 
 # Configuring an error page
-sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME" /etc/nginx/sites-enabled/default
+sed -i "s/server_name _;/a add_header X-Served-By $HOSTNAME" /etc/nginx/sites-enabled/default
 
 # Checking to see Nginxis okay
 nginx -t
