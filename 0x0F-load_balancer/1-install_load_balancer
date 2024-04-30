@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Configure HAProxy to send traffic to web-01 and web-02 servers
+# Create a script to install and configure HAProxy on lb-01 server
+
+# Updating the load balanser server
+sudo apt-get -y update
+
+# Installing and configuring the HAproxy
+sudo apt-get -y install haproxy
+
+# Re configuring the server
+server_config=\
+"
+frontend  gbolahan_frontend
+        bind *:80
+        mode http
+        default_backend gbolahan_backend
+backend gbolahan_backend
+        balance roundrobin
+        server 530460-web-01 52.3.240.1:80 check
+        server 530460-web-02 100.24.237.31:80 check
+"
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# enable haproxy to be started by init script
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+# Testing the HAproxy configuration file
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+
+# Restart the Nginx service
+sudo service haproxy restart
