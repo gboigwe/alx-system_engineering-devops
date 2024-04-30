@@ -1,28 +1,36 @@
 #!/usr/bin/env bash
-# Custom errorpage
+# Creating a 404 error page
 
-# Updating package and installing nginx
-sudo apt-get update
-sudo apt-get install -y nginx
+# Updating the server
+sudo apt-get -y update
 
-# An index.html page created
-echo "Hello World!" | sudo tee /var/www/html/index.html
+# Installing Nginx
+sudo apt-get -y install nginx
 
-# Redirection being made with status code 301
-new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/gboigwe permanent;"
-sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-enabled/default
+# Echo an hello world
+echo 'Hello World!' | sudo tee /var/www/html/index.html
 
-# Created custom 404 error page
+# Declare a variable that redirects
+# my site to your server
+redirect_var="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/gboigwe permanent;"
+
+# Command that actually redirects my site to my server
+sudo sed -i "s/server_name _;/$redirect_var/" /etc/nginx/sites-enabled/default
+
+# Creating the 404 html error page
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-new_string="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 
-sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
+# Script to configure an error page
+replace_input="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 
-# HTTP response header served by hostname
+# Configuring an error page
+sudo sed -i "s/listen 80 default_server;/$replace_input/" /etc/nginx/sites-enabled/default
+
+# Configuring an HTTP Response header
 sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
 
-# Configurations testing
+# Checking to see Nginxis okay
 sudo nginx -t
 
-# Nginx restarting after implementing changes
+# Starting Nginx server
 sudo service nginx restart
