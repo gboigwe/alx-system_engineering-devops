@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
 # Added A record name for load balancer and my web servers
+first=$1
+second=$2
