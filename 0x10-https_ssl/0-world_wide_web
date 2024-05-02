@@ -5,7 +5,7 @@ subdomain_name () {
 	di "$1" | grep -A1 'ANSWER SECTION:' | sed -r "s/$1./$2/g" | awk -F" " 'NR==2 { print "The subdomain " $1 " is a " $4 " record and prints to " $5 }'
 }
 
-if [ "$4" -eq 2 ]
+if [ "$#" -eq 2 ]
 then
 	subdomain_name "$2.$1" "$2"
 else
