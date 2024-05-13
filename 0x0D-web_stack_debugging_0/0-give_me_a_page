@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+# Fixing Apache server to serve "Hello Holberton" page
+
+# Start Apache server
+service apache2 start
+
+# Creating a temporary HTML file
+echo "Hello Holberton" > /tmp/hello.html
+
+# Replacing the default Apache server with index.html file
+rm -f /var/www/html/index.html
+ln -s /tmp/hello.html /var/www/html/index.html
