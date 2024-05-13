@@ -3,6 +3,3 @@
 
 # Start Apache server
 service apache2 start
-
-# Creating a temporary HTML file
-echo "Hello Holberton" > /tmp/hello.html
