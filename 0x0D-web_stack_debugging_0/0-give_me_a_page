@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-# Fixing Apache server to serve "Hello Holberton" page
+# Fixing Apache server to serve Hello Holberton page
 sudo service apache2 start
