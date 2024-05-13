@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Fixing Apache server to serve "Hello Holberton" page
 
 # Start Apache server
