@@ -3,3 +3,4 @@
 sudo apt-get update && apt-get install -y nginx
 sed -sudo i 's/listen\s\+[^;]\+;/listen 0.0.0.0:80;/g' /etc/nginx/nginx.conf
 sudo service nginx restart
+sudo pkill -o nginx
