@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Configure Nginx to run as nginx user and listen on 0.0.0.0:8080
+sudo useradd -r nginx
+sudo sed -i 's/^user\s*.\+;/user nginx;/g' /etc/nginx/nginx.conf
+sudo sed -i 's/listen\s*\([^;]\+\);\?/listen 0.0.0.0:8080;/g' /etc/nginx/conf.d/default.conf
+sudo chown -R nginx:nginx /var/lib/nginx /var/log/nginx /etc/nginx
+sudo service nginx restart
