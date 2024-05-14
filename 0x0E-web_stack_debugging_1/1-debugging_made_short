@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Configuring Nginx to listen on the port 80 of IPv4 IPs
+sudo apt-get update && apt-get install -y nginx
+sed -sudo i 's/listen\s\+[^;]\+;/listen 0.0.0.0:80;/g' /etc/nginx/nginx.conf
+sudo service nginx restart
