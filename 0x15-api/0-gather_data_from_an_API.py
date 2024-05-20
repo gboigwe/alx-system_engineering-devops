@@ -9,8 +9,7 @@ import sys
 
 if __name__ == "__main__":
     employee_id = int(sys.argv[1])
-    url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
-            employee_id)
+    url = "https://jsonplaceholder.typicode.com/"
 
     response = requests.get(url + "users/{}".format(sys.argv[1])).json()
     todos = requests.get(url + "todos", param={"userId": sys.argv[1]}).json()
