@@ -8,7 +8,7 @@ if __name__ == "__main__":
         exit(1)
 
     employee_id = int(sys.argv[1])
-    url = f"https://jsonplaceholder.typicode.com/"
+    url = "https://jsonplaceholder.typicode.com/"
 
     response = requests.get(url)
     todos = response.json()
