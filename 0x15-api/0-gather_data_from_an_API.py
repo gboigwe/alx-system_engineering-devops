@@ -12,8 +12,8 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
             employee_id)
 
-    response = requests.get(url)
-    todos = response.json()
+    response = requests.get(url + "users/{}".format(sys.argv[1])).json()
+    todos = requests.get(url + "todos", param={"userId": sys.argv[1]}).json()
 
     done_tasks = [task for task in todos if task["completed"]]
     total_tasks = len(todos)
