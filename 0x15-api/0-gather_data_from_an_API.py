@@ -19,10 +19,8 @@ if __name__ == "__main__":
 
     employee_name = done_tasks[0]["userId"] if done_tasks else "Unknown"
 
-    print(f"""
-            Employee {employee_name}
-            is done with tasks({done_tasks_count}/{total_tasks}):
-            """)
+    print("Employee {} is done with tasks({}/{}):".format(
+        employee_name, done_tasks_count, total_tasks))
 
     for task in done_tasks:
         print(f"\t {task['title']}")
