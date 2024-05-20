@@ -3,10 +3,6 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: ./todo.py EMPLOYEE_ID")
-        exit(1)
-
     employee_id = int(sys.argv[1])
     url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
             employee_id)
