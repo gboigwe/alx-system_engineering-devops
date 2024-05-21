@@ -10,7 +10,7 @@ import sys
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
 
-    response = requests.get(url + "users/{}".format(sys.argv[1])).json()
+    user = requests.get(url + "users/{}".format(sys.argv[1])).json()
     todos = requests.get(url + "todos", param={"userId": sys.argv[1]}).json()
 
     done_tasks = [task for task in todos if task["completed"]]
