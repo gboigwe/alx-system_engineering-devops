@@ -17,10 +17,10 @@ if __name__ == "__main__":
     total_tasks = len(todos)
     done_tasks_count = len(done_tasks)
 
-    employee_name = done_tasks[0]["userId"] if done_tasks else "Unknown"
+#    employee_name = done_tasks[0]["userId"] if done_tasks else "Unknown"
 
     print("Employee {} is done with tasks({}/{}):".format(
-        employee_name, done_tasks_count, total_tasks))
+        user.get("name"), done_tasks_count, total_tasks))
 
     for task in done_tasks:
         print(f"\t {task['title']}")
