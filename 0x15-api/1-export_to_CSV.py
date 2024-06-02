@@ -38,7 +38,7 @@ if __name__ == "__main__":
         exit(1)
 
     # Export todo list to CSV
-    file_name = f"{employee_id}.csv"
+    file_name = "{}.csv".format(employee_id)
     with open(file_name, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in todos:

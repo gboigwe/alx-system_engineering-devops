@@ -36,7 +36,7 @@ if __name__ == "__main__":
         exit(1)
 
     # Export todo list to JSON
-    file_name = f"{employee_id}.json"
+    file_name = "{}.json".format(employee_id)
     todo_list = {
         employee_id: [
             {
