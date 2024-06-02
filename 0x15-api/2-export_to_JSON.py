@@ -23,7 +23,7 @@ if __name__ == "__main__":
         user = response.json()
     else:
         print("Failed to get employee name for ID {}".format(employee_id))
-        exit(1)
+        # exit(1)
 
     # Get employee's todo list
     todos_response = requests.get(
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     else:
         print("Failed to get todo list for employee {}"
               .format(user.get('name')))
-        exit(1)
+        # exit(1)
 
     # Export todo list to JSON
     file_name = "{}.json".format(employee_id)
