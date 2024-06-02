@@ -11,24 +11,29 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: ./todo_list_csv.py <employee_id>")
+        print("Usage: ./1-export_to_CSV.py <employee_id>")
         exit(1)
 
     employee_id = sys.argv[1]
     url = "https://jsonplaceholder.typicode.com/"
 
-    user = requests.get(url + "users/{}".format(employee_id)).json()
-    todos = requests.get(url + "todos", params={"userId": employee_id}).json()
+    # Get employee name
+    response = requests.get(url + "users/{}".format(employee_id))
+    if response.status_code == 200:
+        user = response.json()
+    else:
+        print(f"Failed to get employee name for ID {employee_id}")
+        exit(1)
 
-    done_tasks = [task for task in todos if task["completed"]]
-    total_tasks = len(todos)
-    done_tasks_count = len(done_tasks)
-
-    print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), done_tasks_count, total_tasks))
-
-    for task in done_tasks:
-        print(f"\t {task['title']}")
+    # Get employee's todo list
+    todos_response = requests.get(url + "todos", params={
+        "userId": employee_id
+        })
+    if todos_response.status_code == 200:
+        todos = todos_response.json()
+    else:
+        print(f"Failed to get todo list for employee {user.get('name')}")
+        exit(1)
 
     # Export todo list to CSV
     file_name = f"{employee_id}.csv"
