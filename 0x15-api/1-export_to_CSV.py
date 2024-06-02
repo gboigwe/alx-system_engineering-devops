@@ -26,7 +26,12 @@ if __name__ == "__main__":
     # Extend Python script to export data in the CSV format.
     csv_file = f"{user_id}.csv"
     with open(csv_file, "w", newline="") as csvfile:
-        fieldnames = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
+        fieldnames = [
+                "USER_ID",
+                "USERNAME",
+                "TASK_COMPLETED_STATUS",
+                "TASK_TITLE"
+                ]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
@@ -34,7 +39,8 @@ if __name__ == "__main__":
             writer.writerow({
                 "USER_ID": user_id,
                 "USERNAME": user.get("username"),
-                "TASK_COMPLETED_STATUS": "True" if task["completed"] else "False",
+                "TASK_COMPLETED_STATUS":
+                "True" if task["completed"] else "False",
                 "TASK_TITLE": task["title"]
             })
 
