@@ -33,7 +33,8 @@ if __name__ == "__main__":
     if todos_response.status_code == 200:
         todos = todos_response.json()
     else:
-        print("Failed to get todo list for employee {}".format(user.get('name')))
+        print("Failed to get todo list for employee {}"
+              .format(user.get('name')))
         exit(1)
 
     # Export todo list to CSV
@@ -49,4 +50,5 @@ if __name__ == "__main__":
                 task["title"]
             ])
 
-    print("Employee {}'s todo list exported to {}".format(user.get('name'), file_name))
+    print("Employee {}'s todo list exported to {}"
+          .format(user.get('name'), file_name))
