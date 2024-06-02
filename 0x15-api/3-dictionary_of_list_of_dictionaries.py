@@ -43,14 +43,16 @@ if __name__ == "__main__":
 #     # Group todos by user
 #     todo_lists = {}
 #     for todo in todos:
-#         user_id = todo["userId"]
-#         username = next(
-#             (user["name"] for user in users if user["id"] == user_id), "Unknown"
-#         )
-#         task_data = {
-#             "username": username,
-#             "task": todo["title"],
-#             "completed": todo["completed"],
+        # user_id = todo["userId"]
+        # username = next(
+        #     (
+        #         user["name"] for user in users if user["id"] == user_id
+        #         ), "Unknown"
+        # )
+        # task_data = {
+        #     "username": username,
+        #     "task": todo["title"],
+        #     "completed": todo["completed"],
 #         }
 #         if user_id in todo_lists:
 #             todo_lists[user_id].append(task_data)
