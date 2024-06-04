@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     If the subreddit is invalid, returns 0.
     """
 
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {"User-Agent": "python-requests/2.28.1"}
 
     try:
