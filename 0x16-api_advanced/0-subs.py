@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""API subreddit checking"""
+
+
 import requests
 
 
@@ -7,6 +10,7 @@ def number_of_subscribers(subreddit):
     Returns the number of subscribers for a given subreddit.
     If the subreddit is invalid, returns 0.
     """
+
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
     headers = {"User-Agent": "python-requests/2.28.1"}
 
