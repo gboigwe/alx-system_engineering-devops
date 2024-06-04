@@ -30,10 +30,3 @@ def recurse(subreddit, hot_list=[]):
                 return recurse(subreddit, hot_list)
             else:
                 return hot_list
-            else:
-                return None
-            except requests.exceptions.RequestException:
-                return None
-            except Exception as e:
-                print("An error occurred: {}".format(e))
-                return None
