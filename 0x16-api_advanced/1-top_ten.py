@@ -18,7 +18,7 @@ def top_ten(subreddit):
         subreddit)
 
     try:
-        response = requests.get(url, headers={"User-Agent": "MyCoolScript"},
+        response = requests.get(url, headers={"User-Agent": "python-requests/2.28.1"},
                                 allow_redirects=False)
         response.raise_for_status()  # Raise exception for non-2xx status codes
         data = response.json()
