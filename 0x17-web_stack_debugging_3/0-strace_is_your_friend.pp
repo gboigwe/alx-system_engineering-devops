@@ -1,32 +1,15 @@
-# The Puppet manifest fixing Apache 500 error in WordPress
+# The Apache server will return error 500.
+# Find the issue, fix and then automate it
+# with Puppet (instead of Bash)
 
-# Install required packages
-package { 'apache2':
-  ensure => present,
-}
+# The manuscript for puppet to replace a
+# line in a file on a server
 
-package { 'libapache2-mod-php':
-  ensure  => present,
-  require => Package['apache2'],
-}
+$file_to_edit = '/var/www/html/wp-settings.php'
 
-# Enable required Apache modules
-apache2mod { 'php5':
-  ensure  => present,
-  require => Package['libapache2-mod-php'],
-}
+# replacing the line containing "phpp" with "php"
 
-# Update WordPress configuration
-exec { 'fix-wordpress':
-  command => 'sed -i "s/.*DBPassword.*/define(\'DB_PASSWORD\', \'$(cat /root/.wp-pass)\');/" /var/www/html/wp-config.php',
-  path    => '/usr/bin:/usr/sbin:/bin',
-  require => Package['libapache2-mod-php'],
-  notify  => Service['apache2'],
-}
-
-# Ensure Apache service is running
-service { 'apache2':
-  ensure  => running,
-  enable  => true,
-  require => Apache2mod['php5'],
+exec { 'replace_line':
+  command => "sed -i 's/phpp/php/g' ${file_to_edit}",
+  path    => '/usr/local/bin/:/bin/' # ['/bin','/usr/bin']
 }
